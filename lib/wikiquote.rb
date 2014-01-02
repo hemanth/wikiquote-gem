@@ -5,7 +5,7 @@ require 'nokogiri'
 
 # The main wiki driver
 module WikiQuote
-    # Get quote of the day from wikiquotes
+    # Get quote of the day from WikiQuote.
     #
     # Example:
     #   >> WikiQuote.get()
@@ -22,4 +22,19 @@ module WikiQuote
 
     alias_method :get, :quote_of_the_day
     alias_method :qotd, :quote_of_the_day
+
+    def quote
+        
+    end
+
+    # Gets the author of the quote of the day.
+    #
+    # Wikiquote contains this within tildes (~), which makes it easy to find.
+    # One just has to get the substring of the quote between the second to last tilde and the last tilde.
+    # This method gets that string (example "~ Isaac Asimov ~"),
+    # then removes the "~ " at the beginning of the string and
+    # " ~" at the end of the string, using regular expressions.
+    def author
+        quote_of_the_day[quote_of_the_day.rindex("~", quote_of_the_day.rindex("~") - 1)..quote_of_the_day.rindex("~")].gsub(/(^~\s*|\s*~$)/, "")
+    end
 end
