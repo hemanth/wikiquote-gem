@@ -21,4 +21,5 @@ module WikiQuote
     end
 
     alias_method :get, :quote_of_the_day
+    alias_method :qotd, :quote_of_the_day
 end
