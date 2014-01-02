@@ -11,7 +11,7 @@ class WikiQuote
     #   >> WikiQuote.get()
     #   => "Ruby rocks" 
     def self.get()
-        quote_url = 'http://en.wikiquote.org/wiki/Main_Page'
+        quote_url = "http://en.wikiquote.org/wiki/Main_Page"
         
         # Hope this remains ;)
         quote_selector = "td , #mw-content-text div div:nth-child(1)"
