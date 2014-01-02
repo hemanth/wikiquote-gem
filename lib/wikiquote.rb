@@ -5,6 +5,10 @@ require 'nokogiri'
 
 # The main wiki driver
 module WikiQuote
+    # Every function should be a module_function
+    # so that users can run them.
+    extend self
+    
     # Get quote of the day from WikiQuote.
     #
     # Example:
