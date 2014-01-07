@@ -3,4 +3,4 @@
 require 'wikiquote'
 
 puts WikiQuote.quote
-puts "-" + WikiQuote.author
+puts "-#{WikiQuote.author}"
