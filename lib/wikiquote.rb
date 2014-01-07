@@ -27,6 +27,13 @@ module WikiQuote
     alias_method :get, :quote_of_the_day
     alias_method :qotd, :quote_of_the_day
 
+    # Gets only the quote in the quote of the day.
+    #
+    # First, the start of the author portion of the quote of the day
+    # to the end of the string is removed from the future string.
+    # Then, the characters before any characters A-Z, a-z, or 0-9
+    # are removed from the start of the string, and whitespace is
+    # removed from the end of the string using regular expressions.
     def quote
         quote_of_the_day[0...second_to_last_index(quote_of_the_day, "~")].gsub(/(\A[^a-zA-z0-9]*|\s*\z)/, "")
     end
