@@ -1,5 +1,6 @@
-#!/usr/bin/env ruby
+#! /usr/bin/env ruby
+
 require 'wikiquote'
-puts WikiQuote.get()
 
-
+puts WikiQuote.quote
+puts "-#{WikiQuote.author}"
