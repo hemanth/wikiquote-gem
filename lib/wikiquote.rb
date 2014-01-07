@@ -28,7 +28,7 @@ module WikiQuote
     alias_method :qotd, :quote_of_the_day
 
     def quote
-        
+        quote_of_the_day[0...second_to_last_index(quote_of_the_day, "~")].gsub(/(\A[^a-zA-z0-9]*|\s*\z)/, "")
     end
 
     # Gets the author of the quote of the day.
@@ -39,6 +39,11 @@ module WikiQuote
     # then removes the "~ " at the beginning of the string and
     # " ~" at the end of the string, using regular expressions.
     def author
-        quote_of_the_day[quote_of_the_day.rindex("~", quote_of_the_day.rindex("~") - 1)..quote_of_the_day.rindex("~")].gsub(/(^~\s*|\s*~$)/, "")
+        quote_of_the_day[second_to_last_index(quote_of_the_day, "~")..quote_of_the_day.rindex("~")].gsub(/(\A~\s*|\s*~\z)/, "")
+    end
+
+    private
+    def second_to_last_index(string, search)
+        string.rindex(search, string.rindex(search) - 1)
     end
 end
