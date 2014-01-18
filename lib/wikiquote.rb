@@ -35,7 +35,7 @@ module WikiQuote
     # are removed from the start of the string, and whitespace is
     # removed from the end of the string using regular expressions.
     def quote
-        quote_of_the_day[0...second_to_last_index(quote_of_the_day, "~")].gsub(/(\A[^a-zA-z0-9]*|\s*\z)/, "")
+        quote_of_the_day[0...second_to_last_index(quote_of_the_day, "~")].gsub(/(\A[^a-zA-z0-9"']*|\s*\z)/, "")
     end
 
     # Gets the author of the quote of the day.
